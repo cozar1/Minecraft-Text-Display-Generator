@@ -66,30 +66,30 @@ def copy_to_clipboard():
 root = tk.Tk()
 root.title("Generator")
 root.geometry("800x600")
-root.configure(bg="#29283a")
+root.configure(bg="#121221")
 
 # Create a title box
 title_frame = tk.Frame(root, bg="#4c4c66", padx=10, pady=10)
 title_frame.pack(pady=10, padx=10)
 
-title_label = tk.Label(title_frame, text="Generator", fg="white", font=("Helvetica", 24, "bold"), bg="#4c4c66")
+title_label = tk.Label(title_frame, text="Text Display Entity Generator", fg="white", font=("Helvetica", 24, "bold"), bg="#4c4c66")
 title_label.pack()
 
 # Create a frame for the color and bold options
-options_frame = tk.Frame(root, bg="#29283a")
+options_frame = tk.Frame(root, bg="#4c4c66")
 options_frame.pack()
 
 # Color options
-color_label = tk.Label(options_frame, text="Text Color (Hex):", bg="#29283a", fg="white", font=("Helvetica", 18))
+color_label = tk.Label(options_frame, text="Text Color (Hex):", bg="#4c4c66", fg="white", font=("Helvetica", 18))
 color_label.grid(row=0, column=0)
 
 color_entry = tk.Entry(options_frame, width=12, font=("Helvetica", 16))
-color_entry.insert(0, "#000000")  # Default color is black
+color_entry.insert(0, "#FFFFFF")  # Default color is black
 color_entry.grid(row=0, column=1)
 color_entry.bind("<KeyRelease>", update_generated_command)  # Update on key release
 
 # Color wheel button
-color_wheel_button = tk.Button(options_frame, text="Color Wheel", command=choose_color, bg="#29283a", fg="white", font=("Helvetica", 18))
+color_wheel_button = tk.Button(options_frame, text="Color Wheel", command=choose_color, bg="#4c4c66", fg="white", font=("Helvetica", 18))
 color_wheel_button.grid(row=0, column=2, padx=5)
 
 # Bold option
@@ -109,28 +109,17 @@ for i, (hex_color, _) in enumerate(color_codes):
 
 # Create the text entry box for the generated command
 text_entry = tk.Text(root, height=8, width=60, wrap=tk.WORD)
-text_entry.configure(font=("F77 Minecraft", 16, "normal"), foreground="black")
+text_entry.configure(font=("F77 Minecraft", 16, "normal"), foreground="black",background="#232339", fg="#FFFFFF")
 text_entry.pack(pady=10)
 text_entry.bind("<KeyRelease>", update_generated_command)  # Update on key release
 
-# Slider for scale
-scale_frame = tk.Frame(root, bg="#29283a")
-scale_frame.pack()
-
-scale_label = tk.Label(scale_frame, text="Scale:", bg="#29283a", fg="white", font=("Helvetica", 18))
-scale_label.grid(row=0, column=0, padx=5)
-
-scale_slider = tk.Scale(scale_frame, from_=1, to=10, orient=tk.HORIZONTAL, length=200, sliderlength=20, font=("Helvetica", 14))
-scale_slider.set(1)  # Default scale value
-scale_slider.grid(row=0, column=1, padx=5)
-
 # Create a label for the generated command
-generated_title = tk.Label(root, text="Generated Command", font=("Helvetica", 16, "bold"))
+generated_title = tk.Label(root, text="Generated Command", font=("Helvetica", 16, "bold"), bg="#4c4c66", fg="#FFFFFF")
 generated_title.pack()
 
 # Create the text box for the generated command
 generated_command_text = tk.Text(root, height=8, width=60, wrap=tk.WORD)
-generated_command_text.configure(font=("Helvetica", 16, "normal"))
+generated_command_text.configure(font=("Helvetica", 16, "normal"),background="#232339", fg="#FFFFFF")
 generated_command_text.pack(pady=10)
 
 # Copy button
